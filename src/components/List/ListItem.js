@@ -15,7 +15,6 @@ export default function ListItem({ index, recipe, isFavorite, isBookmark, toggle
                 <h3>{recipe.title}</h3>
                 <p>{renderIngredients(recipe.ingredients)}</p>
                 <a href={`/recipe/${recipe.id}`}>View Recipe</a>
-"
             </div>
             <div className="inputs">
                 <div className="input-group">
