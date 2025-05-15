@@ -1,0 +1,57 @@
+.recipe-detail {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+
+    img {
+        height: 200px;
+        width: 200px;
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    .detail-group {
+        margin: auto;
+        width: 100%;
+
+        h4 {
+            font-size: 16px;
+            margin: 10px auto;
+            font-weight: 500;
+        }
+
+        ul {
+            padding: 0;
+            margin: 10px auto;
+
+            li {
+                font-size: 12px;
+                list-style: none;
+                width: 100%;
+                text-transform: lowercase;
+                &::first-letter {
+                    text-transform: uppercase
+                }
+
+                span {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        ol {
+            justify-items: center;
+            
+            li {
+                width: fit-content;
+                font-size: 12px;
+                text-transform: lowercase;
+                &::first-letter {
+                    text-transform: uppercase
+                }
+            }
+        }
+    }
+}

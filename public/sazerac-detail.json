@@ -1,0 +1,66 @@
+{
+    "imageURL": "https://www.liquor.com/thmb/qAybJQUD4Cx2L1XvYj3HREQhXBQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/sazerac-1500x1500-hero-62326d995cdb4a79a6a0a3bd4a98cef9.jpg",
+    "title": "Sazerac",
+    "glassware": "Rocks",
+    "ice": "Large Rock",
+    "preparation": "Mixing Glass",
+    "ingredients": [
+        {
+            "step": "rinse",
+            "quantity": 1,
+            "unit": "rinse",
+            "brand": "",
+            "category": "Anisette",
+            "variant": "Absinthe",
+            "abv": 60.00
+        },
+        {
+            "step": "muddle",
+            "quantity": 1,
+            "unit": "cube",
+            "brand": "",
+            "category": "Sweetener",
+            "variant": "demerara sugar",
+            "abv": 0.00
+        },
+        {
+            "step": "muddle",
+            "quantity": 1,
+            "unit": "splash",
+            "brand": "",
+            "category": "Other non-alcoholic",
+            "variant": "cold water",
+            "abv": 0.00
+        },
+        {
+            "step": "mix",
+            "quantity": 2.5,
+            "unit": "oz",
+            "brand": "Rittenhouse",
+            "category": "whiskey",
+            "variant": "Rye whiskey",
+            "abv": 50.00
+        },
+        {
+            "step": "mix",
+            "quantity": 4,
+            "unit": "dash",
+            "brand": "",
+            "category": "Bitters",
+            "variant": "Peychaud's bitters",
+            "abv": 35.00
+        },
+        {
+            "step": "garnish",
+            "quantity": 1,
+            "unit": "twist",
+            "brand": "",
+            "category": "Fresh Produce",
+            "variant": "lemon",
+            "abv": 0
+        }
+    ],
+    "tags": [
+        "Mardi Gras"
+    ]
+}

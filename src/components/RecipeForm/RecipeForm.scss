@@ -1,0 +1,50 @@
+.recipe-form {
+    margin: auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    
+    .recipe-form-item {
+        display: flex;
+        padding: 10px;
+        gap: 10px;
+        font-size: 10px;
+        
+        input {
+            width: 100%;
+        }
+        select {
+            width: 100%;
+        }
+    }
+    .recipe-form-item-list {
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px;
+        width: fit-content;
+
+        p {
+            margin: 5px;
+            font-size: 12px;
+        }
+        .recipe-form-item {
+            display: flex;
+            padding: 5px;
+            gap: 5px;
+            
+            input {
+                width: 100%;
+            }
+        
+            select {
+                width: 100%;
+            }
+        }
+    }
+    button {
+        margin: 5px;
+        padding: 5px 10px;
+        font-size: 10px;
+    }
+}

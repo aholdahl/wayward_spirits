@@ -1,0 +1,63 @@
+.list-page {
+    input {
+        border-radius: 5px;
+        width: 50%;
+        margin: 10px auto;
+    }
+
+    .filter-group {
+        border-radius: 5px;
+    }
+
+    .list {
+        .list-item {
+            display: flex;
+            padding: 10px;
+            border: 1px solid black;
+            margin: 10px;
+            gap: 10px;
+
+            img {
+                height: 100px;
+                width: 100px;
+            }
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+
+                h3 {
+                    font-size: 24px;
+                    margin: 0;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 16px;
+                }
+            }
+
+            .inputs {
+                width: fit-content;
+                display: block;
+
+                .input-group {
+                    display: inline;
+
+                    label {
+                        font-size: 10px;
+                        position: relative;
+                        bottom: 3px;
+                    }
+
+                    input {
+                        width: fit-content;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+    }
+}
