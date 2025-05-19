@@ -18,10 +18,6 @@ function App() {
 
   const [state, dispatch] = useReducer(recipeReducer, initialState)
 
-  // const [recipes, setRecipes] = useState([]);
-  // const [favorites, setFavorites] = useState([]);
-  // const [bookmarks, setBookmarks] = useState([]);
-
   useEffect(() => {
     fetch("recipe-list.json")
       .then(response => response.json())
@@ -37,7 +33,6 @@ function App() {
       type: "TOGGLE_FAVORITE",
       payload: recipeID
     })
-    // setFavorites(prev => prev.includes(recipeID) ? prev.filter(id => id !== recipeID) : [...prev, recipeID])
   }
 
   const toggleBookmarks = (recipeID) => {
@@ -45,7 +40,6 @@ function App() {
       type: "TOGGLE_BOOKMARK",
       payload: recipeID
     })
-    // setBookmarks(prev => prev.includes(recipeID) ? prev.filter(id => id !== recipeID) : [...prev, recipeID])
   }
 
   const addRecipe = (payload) => {
@@ -53,7 +47,6 @@ function App() {
       type: "ADD_RECIPE",
       payload: payload
     })
-    // setRecipes([...recipes, payload])
   }
 
   return (
