@@ -168,7 +168,7 @@ export default function RecipeDetail() {
                 </ul>
             </div>
             <div className="detail-group">
-                <h4>Ingredients:</h4>
+                <h4>Ingredients:</h4> {/* TODO: order ingredients by quantity */}
                 <ul>
                     {recipe.ingredients.map((ingredient, index) => (<Ingredient key={index} index={index} ingredient={ingredient} />))}
                 </ul>

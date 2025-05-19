@@ -22,7 +22,7 @@ export default function List({ recipes, bookmarks, favorites, toggleFavorites, t
     }
 
     const matchesIngredient = (recipe, ingredient) => {
-        return ingredient === "All Ingredients" || recipe.ingredients.join(', ').toLowerCase().includes(ingredient.toLowerCase())
+        return ingredient === "All Ingredients" || JSON.stringify(recipe.ingredients).toLowerCase().includes(ingredient.toLowerCase())
     }
 
     const matchesTag = (recipe, tag) => {
