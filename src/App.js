@@ -1,6 +1,6 @@
 import './App.scss';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 import Header from './components/Header/Header';
@@ -11,29 +11,49 @@ import FavoriteList from './components/List/FavoriteList';
 import RecipeForm from './components/RecipeForm/RecipeForm';
 import RecipeDetail from './components/RecipeDetail/RecipeDetail';
 
-function App() {
+import recipeReducer from './reducers/recipeReducer';
 
-  const [recipes, setRecipes] = useState([]);
-  const [favorites, setFavorites] = useState([]);
-  const [bookmarks, setBookmarks] = useState([]);
+function App() {
+  const initialState = { recipes: [], favorites: [], bookmarks: []}
+
+  const [state, dispatch] = useReducer(recipeReducer, initialState)
+
+  // const [recipes, setRecipes] = useState([]);
+  // const [favorites, setFavorites] = useState([]);
+  // const [bookmarks, setBookmarks] = useState([]);
 
   useEffect(() => {
     fetch("recipe-list.json")
       .then(response => response.json())
-      .then(data => setRecipes(data))
+      .then(data => dispatch({
+        type: "SET_RECIPES",
+        payload: data
+      }))
 
   }, []);
 
   const toggleFavorites = (recipeID) => {
-    setFavorites(prev => prev.includes(recipeID) ? prev.filter(id => id !== recipeID) : [...prev, recipeID])
+    dispatch({
+      type: "TOGGLE_FAVORITE",
+      payload: recipeID
+    })
+    // setFavorites(prev => prev.includes(recipeID) ? prev.filter(id => id !== recipeID) : [...prev, recipeID])
   }
 
   const toggleBookmarks = (recipeID) => {
-    setBookmarks(prev => prev.includes(recipeID) ? prev.filter(id => id !== recipeID) : [...prev, recipeID])
+    dispatch({
+      type: "TOGGLE_BOOKMARK",
+      payload: recipeID
+    })
+    // setBookmarks(prev => prev.includes(recipeID) ? prev.filter(id => id !== recipeID) : [...prev, recipeID])
   }
 
   const addRecipe = (payload) => {
-    setRecipes([...recipes, payload])
+    dispatch({
+      type: "ADD_RECIPE",
+      payload: payload
+    })
+    // setRecipes([...recipes, payload])
   }
 
   return (
@@ -57,10 +77,10 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<List recipes={recipes} favorites={favorites} bookmarks={bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
-          <Route path="/favorites" element={<FavoriteList recipes={recipes} favorites={favorites} bookmarks={bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
-          <Route path="/bookmarks" element={<BookmarkList recipes={recipes} favorites={favorites} bookmarks={bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
-          <Route path="/recipe/new" element={<RecipeForm recipes={recipes} addRecipe={addRecipe} />}></Route>
+          <Route path="/" element={<List recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
+          <Route path="/favorites" element={<FavoriteList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
+          <Route path="/bookmarks" element={<BookmarkList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
+          <Route path="/recipe/new" element={<RecipeForm recipes={state.recipes} addRecipe={addRecipe} />}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
         </Routes>
       </Router>
