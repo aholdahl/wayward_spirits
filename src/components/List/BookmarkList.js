@@ -1,7 +1,7 @@
 import React from 'react';
 import ListItem from './ListItem';
 
-export default function BookmarkList({ recipes, bookmarks, favorites, toggleFavorites, toggleBookmarks }) {
+export default function BookmarkList({ recipes, bookmarks, favorites, dispatch }) {
     return (
         <div className="list-page">
             <h2>Bookmarks</h2>
@@ -9,7 +9,7 @@ export default function BookmarkList({ recipes, bookmarks, favorites, toggleFavo
                 {
                     bookmarks.map((id, index) => {
                         const recipe = recipes.find(recipe => recipe.id === id);
-                        return <ListItem index={index} recipe={recipe} key={index} isFavorite={favorites.includes(recipe.id)} isBookmark={bookmarks.includes(recipe.id)} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />
+                        return <ListItem index={index} recipe={recipe} key={index} isFavorite={favorites.includes(recipe.id)} isBookmark={bookmarks.includes(recipe.id)} dispatch={dispatch} />
                     })
                 }
             </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ListItem from './ListItem';
 import './List.scss';
 
-export default function List({ recipes, bookmarks, favorites, toggleFavorites, toggleBookmarks }) {
+export default function List({ recipes, bookmarks, favorites, dispatch }) {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [ingredient, setIngredient] = useState("");
@@ -66,7 +66,7 @@ export default function List({ recipes, bookmarks, favorites, toggleFavorites, t
             <div className="list">
                 {
                     filteredList.map((recipe, index) => (
-                        <ListItem recipe={recipe} key={index} index={index} isFavorite={favorites.includes(recipe.id)} isBookmark={bookmarks.includes(recipe.id)} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />
+                        <ListItem recipe={recipe} key={index} index={index} isFavorite={favorites.includes(recipe.id)} isBookmark={bookmarks.includes(recipe.id)} dispatch={dispatch} />
                     ))
                 }
             </div>

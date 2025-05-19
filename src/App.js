@@ -28,20 +28,6 @@ function App() {
 
   }, []);
 
-  const toggleFavorites = (recipeID) => {
-    dispatch({
-      type: "TOGGLE_FAVORITE",
-      payload: recipeID
-    })
-  }
-
-  const toggleBookmarks = (recipeID) => {
-    dispatch({
-      type: "TOGGLE_BOOKMARK",
-      payload: recipeID
-    })
-  }
-
   return (
     <div className="App">
       <Header />
@@ -63,9 +49,9 @@ function App() {
           </ul>
         </nav>
         <Routes>
-          <Route path="/" element={<List recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
-          <Route path="/favorites" element={<FavoriteList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
-          <Route path="/bookmarks" element={<BookmarkList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
+          <Route path="/" element={<List recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} dispatch={dispatch} />}></Route>
+          <Route path="/favorites" element={<FavoriteList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} dispatch={dispatch} />}></Route>
+          <Route path="/bookmarks" element={<BookmarkList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} dispatch={dispatch} />}></Route>
           <Route path="/recipe/new" element={<RecipeForm recipes={state.recipes} dispatch={dispatch} />}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
         </Routes>
