@@ -42,13 +42,6 @@ function App() {
     })
   }
 
-  const addRecipe = (payload) => {
-    dispatch({
-      type: "ADD_RECIPE",
-      payload: payload
-    })
-  }
-
   return (
     <div className="App">
       <Header />
@@ -73,7 +66,7 @@ function App() {
           <Route path="/" element={<List recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
           <Route path="/favorites" element={<FavoriteList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
           <Route path="/bookmarks" element={<BookmarkList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} toggleFavorites={toggleFavorites} toggleBookmarks={toggleBookmarks} />}></Route>
-          <Route path="/recipe/new" element={<RecipeForm recipes={state.recipes} addRecipe={addRecipe} />}></Route>
+          <Route path="/recipe/new" element={<RecipeForm recipes={state.recipes} dispatch={dispatch} />}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
         </Routes>
       </Router>

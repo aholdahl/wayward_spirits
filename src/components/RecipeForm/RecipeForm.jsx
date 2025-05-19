@@ -3,7 +3,7 @@ import './RecipeForm.scss';
 import RecipeIngredient from './RecipeIngredient';
 import RecipeTag from './RecipeTag';
 
-export default function RecipeForm({ recipes, addRecipe }) {
+export default function RecipeForm({ recipes, dispatch }) {
     const [title, setTitle] = useState('');
     const [preparation, setPreparation] = useState('');
     const [glassware, setGlassware] = useState('');
@@ -86,7 +86,7 @@ export default function RecipeForm({ recipes, addRecipe }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (ingredients.length) {
-            addRecipe({
+            let newRecipe = {
                 id: recipes.length + 1,
                 title: title,
                 preparation: preparation,
@@ -94,7 +94,10 @@ export default function RecipeForm({ recipes, addRecipe }) {
                 ice: ice,
                 ingredients: ingredients,
                 tags: tags.filter(string => string !== "")
-
+            }
+            dispatch({
+                type: "ADD_RECIPE",
+                payload: newRecipe
             })
             clearForm();
         }
