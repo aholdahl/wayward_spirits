@@ -6,7 +6,6 @@ export default function List({ recipes, bookmarks, favorites, dispatch }) {
 
     const [searchTerm, setSearchTerm] = useState("");
     const [ingredient, setIngredient] = useState("");
-    // const [ABV, setABV] = useState("");
     const [tag, setTag] = useState("");
 
     const handleIngredientChange = (e) => {
@@ -55,12 +54,6 @@ export default function List({ recipes, bookmarks, favorites, dispatch }) {
                         <option>Whiskey</option>
                     </select>
                 </div>
-                {/* <div className="filter">
-                    <label>ABV</label>
-                    <select>
-                        <option></option>
-                    </select>
-                </div> */}
 
             </div>
             <div className="list">

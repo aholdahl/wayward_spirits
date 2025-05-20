@@ -3,64 +3,93 @@
         "id": 1,
         "imageURL": "https://www.liquor.com/thmb/RxHAEt8_h1K9rt6HriZ6auCizzY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__liquor__2019__04__08140002__Ramos-Gin-Fizz-720x720-recipe-8c5c98e081b84cdd8d0a587de32d9573.jpg",
         "title": "Ramos Gin Fizz",
-        "ingredients": [{"variant": "london dry gin"}, {"variant": "club soda"}, {"variant": "simple syrup"}, {"variant": "lemon juice"}, {"variant": "lime juice"}, {"variant": "heavy cream"}, {"variant": "egg white"}],
-        "tags": ["Mardi Gras"],
-        "abv": 18.02,
-        "alcohol_servings": 1.58,
-        "liquor_count": 1,
-        "pour_count": 6,
-        "ingredient_count": 7
+        "ingredients": [
+            {
+                "variant": "london dry gin"
+            },
+            {
+                "variant": "club soda"
+            },
+            {
+                "variant": "simple syrup"
+            },
+            {
+                "variant": "lemon juice"
+            },
+            {
+                "variant": "lime juice"
+            },
+            {
+                "variant": "heavy cream"
+            },
+            {
+                "variant": "egg white"
+            }
+        ],
+        "tags": [
+            "Mardi Gras"
+        ]
     },
     {
         "id": 2,
         "imageURL": "https://www.liquor.com/thmb/gjBtqPZIm4V39QNZJhEVz8oztcQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/mint-julep-720x720-primary-5e2063b906384479b345687201992bd0.jpg",
         "title": "Mint Julep",
         "ingredients": [
-            {"variant": "bourbon whiskey"}, {"variant": "simple syrup"}, {"variant": "mint"}
+            {
+                "variant": "bourbon"
+            },
+            {
+                "variant": "simple syrup"
+            },
+            {
+                "variant": "mint"
+            }
         ],
         "tags": [
             "Summer"
-        ],
-        "meta": {
-            "abv": 40.18,
-            "alcohol_servings": 1.51,
-            "liquor_count": 1,
-            "pour_count": 2,
-            "ingredient_count": 3
-        }
+        ]
     },
     {
         "id": 3,
         "imageURL": "",
         "title": "Salty Dog",
         "ingredients": [
-            {"category": "gin"}, {"variant": "grapefruit juice"}, {"variant": "salt"}
+            {
+                "category": "gin"
+            },
+            {
+                "variant": "grapefruit juice"
+            },
+            {
+                "variant": "salt"
+            }
         ],
-        "tags": [],
-        "meta": {
-            "abv": 15.77,
-            "alcohol_servings": 1.18,
-            "liquor_count": 1,
-            "pour_count": 2,
-            "ingredient_count": 2
-        }
+        "tags": []
     },
     {
         "id": 4,
         "imageURL": "https://www.liquor.com/thmb/qAybJQUD4Cx2L1XvYj3HREQhXBQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/sazerac-1500x1500-hero-62326d995cdb4a79a6a0a3bd4a98cef9.jpg",
         "title": "Sazerac",
         "ingredients": [
-            {"variant": "rye whiskey"}, {"variant": "peychauds bitters"}, {"variant": "sugar"}, {"variant": "absinthe"}
+            {
+                "category": "whiskey",
+                "variant": "rye whiskey"
+            },
+            {
+                "category": "bitters",
+                "variant": "peychaud's bitters"
+            },
+            {
+                "category": "sweetener",
+                "variant": "sugar"
+            },
+            {
+                "category": "anisette",
+                "variant": "absinthe"
+            }
         ],
         "tags": [
             "Mardi Gras"
-        ],
-        "meta": {
-            "abv": 43.97,
-            "alcohol_servings": 2.15,
-            "liquor_count": 2,
-            "pour_count": 1,
-            "ingredient_count": 4
-        }
+        ]
     }
 ]

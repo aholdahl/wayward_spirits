@@ -1,68 +1,65 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Ingredient from './Ingredient';
 import './RecipeDetail.scss';
 
-export default function RecipeDetail() {
+export default function RecipeDetail({ dispatch }) {
+    const navigate = useNavigate();
     const recipe = {
+        "id": 4,
         "imageURL": "https://www.liquor.com/thmb/qAybJQUD4Cx2L1XvYj3HREQhXBQ=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/sazerac-1500x1500-hero-62326d995cdb4a79a6a0a3bd4a98cef9.jpg",
         "title": "Sazerac",
-        "glassware": "Rocks",
-        "ice": "Large Rock",
-        "preparation": "Mixing Glass",
+        "glassware": "rocks",
+        "ice": "large rock",
+        "preparation": "mixing glass",
         "ingredients": [
             {
                 "step": "rinse",
                 "quantity": 1,
-                "unit": "rinse",
+                "unit": "teaspoon",
                 "brand": "",
-                "category": "Anisette",
-                "variant": "Absinthe",
-                "abv": 60.00
+                "category": "anisette",
+                "variant": "absinthe"
             },
             {
                 "step": "muddle",
                 "quantity": 1,
-                "unit": "cube",
+                "unit": "teaspoon",
                 "brand": "",
-                "category": "Sweetener",
-                "variant": "demerara sugar",
-                "abv": 0.00
+                "category": "sweetener",
+                "variant": "demerara sugar"
             },
             {
                 "step": "muddle",
                 "quantity": 1,
-                "unit": "splash",
+                "unit": "teaspoon",
                 "brand": "",
-                "category": "Other non-alcoholic",
-                "variant": "cold water",
-                "abv": 0.00
+                "category": "other non-alcoholic",
+                "variant": "cold water"
             },
             {
-                "step": "mix",
+                "step": "combine",
                 "quantity": 2.5,
                 "unit": "oz",
                 "brand": "Rittenhouse",
                 "category": "whiskey",
-                "variant": "Rye whiskey",
-                "abv": 50.00
+                "variant": "rye whiskey"
             },
             {
-                "step": "mix",
+                "step": "combine",
                 "quantity": 4,
                 "unit": "dash",
                 "brand": "",
-                "category": "Bitters",
-                "variant": "Peychaud's bitters",
-                "abv": 35.00
+                "category": "bitters",
+                "variant": "peychaud's bitters"
             },
             {
                 "step": "garnish",
                 "quantity": 1,
                 "unit": "twist",
                 "brand": "",
-                "category": "Fresh Produce",
-                "variant": "lemon",
-                "abv": 0
+                "category": "fresh produce",
+                "variant": "lemon"
             }
         ],
         "tags": [
@@ -103,11 +100,11 @@ export default function RecipeDetail() {
     }
 
     const renderPreparation = () => {
-        return recipe.preparation !== "Glass" &&
+        return recipe.preparation !== "glass" &&
             (
                 <li>
-                    {recipe.preparation === "Blender" && "Add 1 cup of ice and blend"}
-                    {recipe.preparation === "Shaker" ?
+                    {recipe.preparation === "blender" && "Add 1 cup of ice and blend"}
+                    {recipe.preparation === "shaker" ?
                         containsEgg(recipe.ingredients) ?
                             "Wet-Dry Shake"
                             : containsTomato ?
@@ -115,8 +112,8 @@ export default function RecipeDetail() {
                                 : "Shake"
                         : null
                     }
-                    {recipe.preparation === "Mixing Glass" && "Stir"}
-                {recipe.preparation !== "Blender" && ` then ${recipe.ice === "none" ? "Double-Strain" : "Strain"} into glass ${recipe.ice !== "none" && `over ${recipe.ice}`}`}
+                    {recipe.preparation === "mixing glass" && "Stir"}
+                    {recipe.preparation !== "blender" && ` then ${recipe.ice === "none" ? "Double-Strain" : "Strain"} into glass ${recipe.ice !== "none" && `over ${recipe.ice}`}`}
                 </li>
             )
     }
@@ -153,7 +150,18 @@ export default function RecipeDetail() {
 
     const isTopStirred = (ingredients) => {
         const top = ingredients.find(ingredient => ingredient.step === "float")
-        return (top.category === "Carbonated Beverage" || top.category === "Juice")
+        return (top.category === "carbonated beverage" || top.category === "juice")
+    }
+
+    const handleEdit = (recipe) => {
+        console.log(
+            "editing"
+        )
+        dispatch({
+            type: "SET_EDITING_RECIPE",
+            payload: recipe
+        })
+        navigate(`/recipe/edit/${recipe.id}`)
     }
 
     return (
@@ -185,6 +193,7 @@ export default function RecipeDetail() {
                     {renderGarnish(recipe.ingredients.filter(ingredient => ingredient.step === "garnish"))}
                 </ol>
             </div>
+            <button type="button" onClick={() => handleEdit(recipe)} >Edit</button>
         </div>
     )
 }

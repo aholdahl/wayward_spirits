@@ -13,7 +13,7 @@ export default function ListItem({ index, recipe, isFavorite, isBookmark, dispat
             <img src={recipe.imageURL || '/logo192.png'} alt={recipe.title} />
             <div>
                 <h3>{recipe.title}</h3>
-                <p>{renderIngredients(recipe.ingredients)}</p>
+                <p>{renderIngredients(recipe.ingredients)}</p>{/* TODO: order ingredients by quantity */}
                 <a href={`/recipe/${recipe.id}`}>View Recipe</a>
             </div>
             <div className="inputs">
@@ -32,7 +32,6 @@ export default function ListItem({ index, recipe, isFavorite, isBookmark, dispat
                     })}></input>
                 </div>
             </div>
-
         </div>
     )
 }

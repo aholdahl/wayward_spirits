@@ -1,12 +1,12 @@
 import React from 'react';
 import RecipeIngredientVariant from './RecipeIngredientVariant';
 
-export default function RecipeIngredient({ index, step, quantity, unit, category, variant, brand, handleIngredientChange, handleDelete }) {
+export default function RecipeIngredient({ index, step, quantity, unit, category, variant, brand, handleIngredientChange, handleDeleteIngredient }) {
 
     return (
         <div className="recipe-form-item-list">
 
-            <div class="recipe-form-item">
+            <div className="recipe-form-item">
                 <label>Preparation Step</label>
                 <select name="step" required value={step} onChange={(event) => handleIngredientChange(event, index, "step")}>
                     <option value=""></option>
@@ -20,12 +20,12 @@ export default function RecipeIngredient({ index, step, quantity, unit, category
                 </select>
             </div>
 
-            <div class="recipe-form-item">
+            <div className="recipe-form-item">
                 <label>Quantity</label>
-                <input type="number" name="quantity" required value={quantity} onChange={(event) => handleIngredientChange(event, index, "quantity")} min={0} />
+                <input type="number" name="quantity" required value={quantity} onChange={(event) => handleIngredientChange(event, index, "quantity")} min={0} step={0.01} />
             </div>
 
-            <div class="recipe-form-item">
+            <div className="recipe-form-item">
                 <label>Unit</label>
                 <select name="unit" required value={unit} onChange={(event) => handleIngredientChange(event, index, "unit")}>
                     <option value=""></option>
@@ -45,7 +45,7 @@ export default function RecipeIngredient({ index, step, quantity, unit, category
                 </select>
             </div>
 
-            <div class="recipe-form-item">
+            <div className="recipe-form-item">
                 <label>Ingredient Category</label>
                 <select name="ingredient-category" required value={category} onChange={(event) => handleIngredientChange(event, index, "category")}>
                     <option value=""></option>
@@ -77,7 +77,7 @@ export default function RecipeIngredient({ index, step, quantity, unit, category
                         <option value="coffee">Coffee</option>
                         <option value="milk">Milk</option>
                         <option value="egg">Egg</option>
-                        <option value="produce">Fresh Produce</option>
+                        <option value="fresh produce">Fresh Produce</option>
                         <option value="other non-alcoholic">Other Non-Alcoholic</option>
                     </optgroup>
                 </select>
@@ -86,12 +86,12 @@ export default function RecipeIngredient({ index, step, quantity, unit, category
                 !!category ? <RecipeIngredientVariant index={index} category={category} variant={variant} handleIngredientChange={handleIngredientChange} /> : null
             }
 
-            <div class="recipe-form-item">
+            <div className="recipe-form-item">
                 <label>Brand Recommendation</label>
                 <input type="text" name="brand" value={brand} onChange={(event) => handleIngredientChange(event, index, "brand")} />
             </div>
 
-            <button type="button" onClick={() => { handleDelete(index) }} >Delete</button>
+            <button type="button" onClick={() => { handleDeleteIngredient(index) }} >Delete</button>
         </div>
     )
 }

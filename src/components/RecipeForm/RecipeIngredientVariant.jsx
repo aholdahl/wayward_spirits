@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function RecipeIngredientVariant({ category, variant, index, handleIngredientChange }) {
     const categories = {
-        "anisette": ["absinte", "pernod", "pastis", "sambuca", "ouzo"],
+        "anisette": ["absinthe", "pernod", "pastis", "sambuca", "ouzo"],
         "brandy": ["cognac/armagnac", "pisco", "calvados", "applejack", "pear", "plum"],
         "gin": ["london dry gin", "old tom gin", "plymouth gin", "genever/holland gin", "sloe gin", "flavored gin"],
         "rum": ["white/light rum", "cachaca/rhum agricole", "gold rum", "dark rum", "funky jamaican rum", "navy strength rum", "flavored rum"],
@@ -28,7 +28,7 @@ export default function RecipeIngredientVariant({ category, variant, index, hand
     }
 
     return (
-        <div class="recipe-form-item" >
+        <div className="recipe-form-item" >
             <label>Subcategory</label>
             <select name="ingredient-variant" value={variant} onChange={(event) => handleIngredientChange(event, index, "variant")}>
                 <option value=""></option>

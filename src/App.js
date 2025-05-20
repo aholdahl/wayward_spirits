@@ -14,7 +14,7 @@ import RecipeDetail from './components/RecipeDetail/RecipeDetail';
 import recipeReducer from './reducers/recipeReducer';
 
 function App() {
-  const initialState = { recipes: [], favorites: [], bookmarks: []}
+  const initialState = { recipes: [], favorites: [], bookmarks: [], editingRecipe: null }
 
   const [state, dispatch] = useReducer(recipeReducer, initialState)
 
@@ -25,7 +25,6 @@ function App() {
         type: "SET_RECIPES",
         payload: data
       }))
-
   }, []);
 
   return (
@@ -53,7 +52,8 @@ function App() {
           <Route path="/favorites" element={<FavoriteList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} dispatch={dispatch} />}></Route>
           <Route path="/bookmarks" element={<BookmarkList recipes={state.recipes} favorites={state.favorites} bookmarks={state.bookmarks} dispatch={dispatch} />}></Route>
           <Route path="/recipe/new" element={<RecipeForm recipes={state.recipes} dispatch={dispatch} />}></Route>
-          <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
+          <Route path="/recipe/edit/:id" element={<RecipeForm editingRecipe={state.editingRecipe} dispatch={dispatch} />}></Route>
+          <Route path="/recipe/:id" element={<RecipeDetail dispatch={dispatch} />}></Route>
         </Routes>
       </Router>
       <Footer />
