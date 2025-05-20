@@ -3,15 +3,15 @@ import './App.scss';
 import React, { useEffect, useReducer } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import List from './components/List/List';
-import BookmarkList from './components/List/BookmarkList';
-import FavoriteList from './components/List/FavoriteList';
-import RecipeForm from './components/RecipeForm/RecipeForm';
-import RecipeDetail from './components/RecipeDetail/RecipeDetail';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import List from '../List/List';
+import BookmarkList from '../List/BookmarkList';
+import FavoriteList from '../List/FavoriteList';
+import RecipeForm from '../RecipeForm/RecipeForm';
+import RecipeDetail from '../RecipeDetail/RecipeDetail';
 
-import recipeReducer from './reducers/recipeReducer';
+import recipeReducer from '../../reducers/recipeReducer';
 
 function App() {
   const initialState = { recipes: [], favorites: [], bookmarks: [], editingRecipe: null }
